@@ -1,0 +1,64 @@
+#include <Servo.h>
+
+Servo myservo;
+Servo myservo1;
+int pos = 10; 
+int pos1 = 10; 
+void setup() {
+  myservo.attach(9); 
+  myservo1.attach(13);
+  pinMode(7, OUTPUT);
+  digitalWrite(7, HIGH);
+ 
+  for (pos = 10; pos <= 90; pos += 1) { 
+    myservo.write(pos);             
+    delay(15);                     
+  }
+  delay(1000);
+  for (pos1 = 90; pos1 >= 45; pos1 -= 1) {
+    myservo1.write(pos1);              
+       delay(5);                  
+  } 
+  
+  for (pos1 = 45; pos1 <= 90; pos1 += 1) {
+    myservo1.write(pos1);              
+    delay(5);                      
+  } 
+  delay(1000);
+  for (pos = 90; pos >= 10; pos -= 1) { 
+    myservo.write(pos);             
+    delay(15);                     
+  }
+  digitalWrite(7, LOW);
+  myservo.detach();
+  myservo1.detach();
+  delay(1000000);
+  
+}
+void loop() {
+  for (pos = 10; pos <= 90; pos += 1) { 
+    myservo.write(pos);             
+    delay(15);                     
+  }
+  delay(1000);
+  for (pos1 = 90; pos1 >= 45; pos1 -= 1) {
+    myservo1.write(pos1);              
+       delay(5);                  
+  } 
+  
+  for (pos1 = 45; pos1 <= 90; pos1 += 1) {
+    myservo1.write(pos1);              
+    delay(5);                      
+  } 
+  delay(1000);
+  for (pos = 90; pos >= 10; pos -= 1) { 
+    myservo.write(pos);             
+    delay(15);                     
+  }
+  digitalWrite(7, LOW);
+  myservo.detach();
+  myservo1.detach();
+
+  delay(1000000); //loop runs after this fixed time = 1000seconds. Can be implemented with an RTC for further implementations. 
+}
+
